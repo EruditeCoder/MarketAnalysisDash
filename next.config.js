@@ -6,6 +6,7 @@ module.exports = {
 
 		BLS_API_KEY: process.env.BLS_API_KEY,
 		DOL_API_KEY: process.env.DOL_API_KEY,
-		DOL_SHARED_SECRET: process.env.DOL_SHARED_SECRET,
+		DOL_SHARED_SECRET: process.env.BAR_API_KEY,
+		DOL_SHARED_SECRET: process.env.DOL_SHARED_SECRET
 	},
 };
