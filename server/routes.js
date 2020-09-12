@@ -1,13 +1,9 @@
 const routes = require('next-routes')
 const routesImplementation = routes()
 
-// routesImplementation
-//   .add([identifier], pattern = /identifier, page = identifier)
-//   .add('/blog/:slug', 'blogShow')
-//   .add('showBlogPostRoute', '/blog/:slug', 'blogShow')
-
 routesImplementation.add('/:slug', 'index')
 routesImplementation.add('/more/:slug', 'index')
+routesImplementation.add('/test1/:slug', 'test1')
 
 module.exports = routesImplementation
 
