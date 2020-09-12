@@ -4,7 +4,6 @@ A market analysis dashboard which tracks different data sets in order to give tr
 
 ## Data Points
 
-- Unemployment rate -> BLS
 - Total jobless claims -> DOL
 - Nonfarm payrolls -> ?
 - Inflation rates
@@ -13,6 +12,8 @@ A market analysis dashboard which tracks different data sets in order to give tr
 - Oil prices -> ?
 - Consumer activity (Consumer confidence index, Retail spending, Housing market) -> ?
 - Manufacturing production -> ?
+- US 10T/15T/30T yields -> ?
+- Price of U.S. dollar -> ?
 - TA signals on SPY (To be expanded upon) -> ?
 
 
@@ -20,3 +21,4 @@ A market analysis dashboard which tracks different data sets in order to give tr
 
 - [U.S. Bureau of Labor Satistics](https://www.bls.gov/developers/)
 - [U.S. Department of Labor](https://developer.dol.gov/)
+- [Barchart](https://www.barchart.com/ondemand/)

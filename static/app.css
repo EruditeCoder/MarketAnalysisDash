@@ -14,7 +14,6 @@ body {
 	}
 }
 
-/* Nice & simple: Button - http://codepen.io/tomsoderlund/pen/qqyzqp */
 button {
 	background-color: dodgerblue;
 	border-radius: 0.2em;
@@ -44,7 +43,6 @@ button:disabled {
 	background-color: silver;
 }
 
-/* Nice & simple: Input and Dropdown Menu - http://codepen.io/tomsoderlund/pen/GNBbWz */
 input,
 textarea,
 select {
