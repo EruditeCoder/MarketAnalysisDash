@@ -16,7 +16,6 @@ A market analysis dashboard which tracks different data sets in order to give tr
 - Price of U.S. dollar -> ?
 - TA signals on SPY (To be expanded upon) -> ?
 
-
 ## APIs Used
 
 - [U.S. Bureau of Labor Satistics](https://www.bls.gov/developers/)
