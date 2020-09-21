@@ -2,8 +2,9 @@ import { Component } from 'react'
 import PageHead from '../components/PageHead'
 import MyChart from '../components/Chart'
 import { Link } from '../server/routes.js'
+import DataFetcher from '../components/DataFetcher'
 
-class Test1 extends Component {
+export default class Test1 extends Component {
 
     static async getInitialProps ({ store, isServer, pathname, query }) {
         return { isServer, pathname, query }
@@ -16,8 +17,8 @@ class Test1 extends Component {
     render () {
         return <main>
         <PageHead
-            title='Next.js (React) + Express REST API + MongoDB + Mongoose-Crudify boilerplate'
-            description='Demo of nextjs-express-mongoose-crudify-boilerplate'
+            title='Market Analysis Dash'
+            description='Analyze these markets :)'
         />
         <h1>Kittens</h1>
         <h2>Routing</h2>
@@ -28,9 +29,16 @@ class Test1 extends Component {
             <li><Link route='/about'><a>About</a></Link></li>
             <li><Link route='/more/contact'><a>Contact</a></Link></li>
         </ul>
-        <MyChart></MyChart>
+
+        <MyChart
+            chartData={DataFetcher.BARFetcher()}
+            title={'20yr Treasury Bond ETF'}
+            dataRoot={'results'}
+            xValue={'tradingDay'}
+            yValue={'open'}
+        >
+        </MyChart>
+        
         </main>
     }
 }
-
-export default Test1

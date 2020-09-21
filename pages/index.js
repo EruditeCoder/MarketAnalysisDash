@@ -87,7 +87,7 @@ class IndexPage extends Component {
       <ul>
         <li><Link route='/about'><a>About</a></Link></li>
         <li><Link route='/more/contact'><a>Contact</a></Link></li>
-        <li><Link route='/test1/info'><a>test1</a></Link></li>
+        <li><Link route='/test1'><a>test1</a></Link></li>
       </ul>
 
     </main>

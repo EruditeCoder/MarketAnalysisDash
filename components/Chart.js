@@ -1,33 +1,47 @@
 import { Chart } from 'react-charts'
 
+/**
+ * Converts a string path to a value that is existing in a json object.
+ * 
+ * @param {Object} jsonData Json data to use for searching the value.
+ * @param {Object} path the path to use to find the value.
+ * @returns {Object} Value of item in object, or undefined
+ */
+const jsonPathToValue = (jsonData, path) => {
+    if (!(jsonData instanceof Object) || typeof (path) === "undefined") {
+        throw "Not valid argument:jsonData:" + jsonData + ", path:" + path;
+    }
+    path = path.replace(/\[(\w+)\]/g, '.$1') // convert indexes to properties
+    path = path.replace(/^\./, '') // strip a leading dot
+    var pathArray = path.split('.')
+    for (var i = 0, n = pathArray.length; i < n; ++i) {
+        var key = pathArray[i]
+        if (key in jsonData) {
+            if (jsonData[key] !== null) {
+                jsonData = jsonData[key]
+            } else {
+                return null
+            }
+        } else {
+            return key
+        }
+    }
+    return jsonData
+}
 
-const MyChart = () => {
+const MyChart = (props) => {
+
 	const data = React.useMemo(
 		() => [
 			{
-				label: 'Series 1',
-				data: [
-					{ primary: 1, secondary: 10 },
-					{ primary: 2, secondary: 11 },
-					{ primary: 3, secondary: 12 },
-				],
-			},
-			{
-				label: 'Series 2',
-				data: [
-					{ primary: 1, secondary: 13 },
-					{ primary: 2, secondary: 14 },
-					{ primary: 3, secondary: 15 },
-				],
-			},
-			{
-				label: 'Series 3',
-				data: [
-					{ primary: 1, secondary: 17 },
-					{ primary: 2, secondary: 15 },
-					{ primary: 3, secondary: 19 },
-				],
-			},
+				label: props.title,
+				data: jsonPathToValue(props.chartData, props.dataRoot).map((point) => {
+						return {
+							primary: new Date(jsonPathToValue(point, props.xValue)),
+							secondary: jsonPathToValue(point, props.yValue)
+						}
+					})
+			}
 		],
 		[]
 	)
@@ -44,27 +58,27 @@ const MyChart = () => {
 			{ type: "linear", position: "left" },
 		],
 		[]
-	);
+	)
 
 	const series = React.useMemo(
 		() => ({
 			showPoints: true,
 		}),
 		[]
-	);
+	)
 
 	return (
 		<div
 			style={{
-				width: '400px',
-				height: '300px',
+				width: '900px',
+				height: '500px',
 			}}
 		>
 			<Chart
 				data={data}
 				axes={axes}
 				series={series}
-				grouping="single"
+				grouping="primary"
 				tooltip={true}
 				/>
 		</div>

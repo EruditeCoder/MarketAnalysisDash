@@ -1,4 +1,9 @@
-function DOLJoblessClaimsFetcher() {
+import TLTSample from '../docs/TLT-Sample'
+
+
+
+let DataFetcher = {}
+DataFetcher.DOLJoblessClaimsFetcher = () => {
 	fetch('http://api.dol.gov/V1/Statistics/OUI_InitialClaims',
 	{
 		method: 'GET',
@@ -12,15 +17,17 @@ function DOLJoblessClaimsFetcher() {
 }
 
 
-function BARFetcher() {
-	let quoteURL = 'https://marketdata.websol.barchart.com/getHistory.json?apikey=' +
-	process.env.BAR_API_KEY +
-	'&symbol=TLT&type=daily&startDate=20200608&endDate=20200912&order=asc'
+DataFetcher.BARFetcher = () => {
+	// let quoteURL = 'https://marketdata.websol.barchart.com/getHistory.json?apikey=' +
+	// process.env.BAR_API_KEY +
+	// '&symbol=TLT&type=daily&startDate=20200608&endDate=20200912&order=asc'
 
-	fetch(quoteURL)
-	.then(function (response) {
-		console.log(response)
-	})
+	// fetch(quoteURL)
+	// 	.then(response => response.json())
+	// 	.then(data => console.log(data));
+
+	// For now, hardcoded
+	return TLTSample
 }
 
-// BARFetcher()
+module.exports = DataFetcher

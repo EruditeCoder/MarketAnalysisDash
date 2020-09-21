@@ -48,10 +48,10 @@ app.prepare().then(() => {
 })
 
 // Regularly update charts from database
-let lastHour = new Date().getHours();
-setInterval(() => {
-	console.log("It's a server-side thing")
-	if (lastHour != new Date().getHours()) {
-		// TODO It's a new hour, fetch latest data from DB
-	}
-}, 1000 * 60)
+// let lastHour = new Date().getHours();
+// setInterval(() => {
+// 	console.log("It's a server-side thing")
+// 	if (lastHour != new Date().getHours()) {
+// 		// TODO It's a new hour, fetch latest data from DB
+// 	}
+// }, 1000 * 60)
